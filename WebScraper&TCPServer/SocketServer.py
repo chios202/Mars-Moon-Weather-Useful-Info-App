@@ -40,9 +40,10 @@ if __name__ == "__main__":
     server = SocketServer("192.168.1.3", 1234)
     try:
         server.configureServer()
+        server.sendDataToClient()
     except UnexpectedValue:
         pass
-    server.sendDataToClient()
+    
 
 
 
