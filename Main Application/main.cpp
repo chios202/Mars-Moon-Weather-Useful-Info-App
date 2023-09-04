@@ -66,34 +66,21 @@ const std::string& TCPClientOption(const std::string& option)
 int main(int argc, char* argv[])
 {
 
-    Options file{};
+    
 
     try
     {
+        Options file{};
         int path{outData()};
         file.ReadData(argv[path]);
+        Options TCPClientStart{"192.168.1.3",1234};
+        std::cout << "Enter 1 for real-time MoonLro and 2 for Mars distance from sun:" << '\n';
+        std::string option{};
+        std::cin >> option;
     }
     catch (const CustomExeption& exeption)
     {
-        std::cerr << "You provided an invalid option (" << exeption.what() << ")" << '\n';
+        std::cerr << exeption.what() << '\n';
     }
-
-    Options TCPClientStart{"192.168.1.3",1234};
-
-    std::cout << "Enter 1 for real-time MoonLro and 2 for Mars distance from sun:" << '\n';
-    std::string option{};
-    std::cin >> option;
-
-    try
-    {
-        const std::string finalOption{TCPClientOption(option)};
-        TCPClientStart.TCPClient(finalOption);
-    }
-    catch (const CustomExeption& exeption)
-    {
-        std::cerr << "You provided an invalid option (" << exeption.what() << ")" << '\n';
-    }
-
-
     return 0;
 }
