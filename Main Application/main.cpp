@@ -65,9 +65,6 @@ const std::string& TCPClientOption(const std::string& option)
 
 int main(int argc, char* argv[])
 {
-
-    
-
     try
     {
         Options file{};
